@@ -1,0 +1,5 @@
+<%= form_for @book do |f| %>
+  First name: <%= f.text_field :book_title %><br />
+  Book Title: <%= f.collection_select :author_ids, Author.order(:first_name), :id, :first_name, {}, {multiple: true} %>
+  <%= f.submit %>
+<% end %>

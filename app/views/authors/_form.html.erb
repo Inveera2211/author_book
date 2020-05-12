@@ -1,0 +1,9 @@
+<%#= form_for :author, url:authors_path do |f| %>
+<%= form_for @author do |f| %>
+  First name: <%= f.text_field :first_name %><br />
+  Last name : <%= f.text_field :last_name %><br />
+  DateBirth : <%= f.text_field :dob %><br />
+  Book Title: <%= f.collection_select :book_ids, Book.order(:book_title), :id, :book_title, {}, {multiple: true} %>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,40 @@
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>DOB</th>
+    <th>Actions</th>
+
+  </tr>
+  <% @authors.each do |author|%>
+  <tr>
+    <td><%=author.first_name%></td>
+    <td><%=author.last_name%></td>
+    <td><%=author.dob%></td>
+    <td><%= link_to "Edit", edit_author_path(author) %> | <%= link_to "Delete", author_path(author), data: { method: :delete, confirm: "Are you sure?" } %>
+    </td>
+  </tr>
+  <% end %>
+ 
+</table>
+
+
+<center><%= link_to "Create New Author", new_author_path%> </center>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
